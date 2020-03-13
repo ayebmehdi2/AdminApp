@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <LinearLayout
+            android:id="@+id/bar"
+            android:background="#F5F5F5"
+            android:elevation="3dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/titan_one"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"
+            />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:textSize="14dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#757575"
+                tools:text="Mehdi Ayeb"/>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="30dp"
+                android:id="@+id/photo"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="200dp"
+            android:id="@+id/btn_generate"
+            android:text="Generate"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#fff"
+            android:background="@drawable/back_login_bottom"
+            />
+
+
+        <Button
+            android:layout_width="200dp"
+            android:id="@+id/btn_statistique"
+            android:text="Statistique"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/btn_generate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/back_login_bottom"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

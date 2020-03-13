@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:hint="Number qr codes"
+            android:id="@+id/num"
+            android:background="#EEE"
+            android:layout_margin="16dp"
+            android:layout_height="50dp"
+            android:paddingLeft="16sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Produit 1"
+            android:layout_marginTop="16dp"
+            android:id="@+id/p1"
+            android:onClick="pb1"
+            android:textSize="16sp"
+            android:padding="16sp"
+            android:textColor="#212121"
+            android:layout_height="wrap_content"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E1E1E1"
+            />
+
+        <TextView
+            android:id="@+id/p2"
+            android:layout_width="match_parent"
+            android:text="Produit 2"
+            android:textSize="16sp"
+            android:padding="16sp"
+            android:onClick="pb2"
+
+            android:textColor="#212121"
+            android:layout_height="wrap_content"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E1E1E1"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Produit 3"
+            android:textSize="16sp"
+            android:onClick="pb3"
+
+            android:padding="16sp"
+            android:id="@+id/p3"
+            android:textColor="#212121"
+            android:layout_height="wrap_content"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E1E1E1"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Produit 4"
+            android:textSize="16sp"
+            android:onClick="pb4"
+            android:id="@+id/p4"
+            android:padding="16sp"
+            android:textColor="#212121"
+            android:layout_height="wrap_content"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E1E1E1"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Produit 5"
+            android:textSize="16sp"
+            android:onClick="pb5"
+            android:padding="16sp"
+            android:id="@+id/p5"
+            android:textColor="#212121"
+            android:layout_height="wrap_content"
+            />
+
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:textColor="#FFF"
+            android:id="@+id/genrate"
+            android:layout_height="wrap_content"
+            android:text="Generate"
+            android:background="@drawable/back_login_bottom"
+            android:layout_margin="16sp"/>
+    </LinearLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:id="@+id/l"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:alpha=".5"
+                android:layout_height="match_parent"
+                android:background="#212121"/>
+
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_centerInParent="true"
+                android:layout_height="40dp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>
