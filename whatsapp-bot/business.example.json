@@ -1,0 +1,29 @@
+{
+  "name": "Yummbo",
+  "type": "Fast-food restaurant (burgers, wraps, fries)",
+  "languages": ["French", "Arabic", "English"],
+  "address": "12 Avenue Habib Bourguiba, Tunis, Tunisia",
+  "latitude": 36.8008,
+  "longitude": 10.1800,
+  "google_maps_url": "https://maps.app.goo.gl/your-place-link",
+  "phone": "+216 12 345 678",
+  "opening_hours": {
+    "Monday-Thursday": "11:00-23:00",
+    "Friday-Saturday": "11:00-01:00",
+    "Sunday": "12:00-22:00"
+  },
+  "services": ["Dine-in", "Takeaway", "Delivery within 5 km (5 TND fee)"],
+  "payment_methods": ["Cash", "Card"],
+  "menu": [
+    {"item": "Classic Burger", "price": "14 TND"},
+    {"item": "Double Cheese Burger", "price": "19 TND"},
+    {"item": "Chicken Wrap", "price": "12 TND"},
+    {"item": "Fries", "price": "5 TND"},
+    {"item": "Soft drink", "price": "3 TND"}
+  ],
+  "faq": [
+    {"q": "Do you have vegetarian options?", "a": "Yes, the Veggie Burger on request (14 TND)."},
+    {"q": "Can I book a table?", "a": "Yes, for groups of 4 or more."}
+  ],
+  "extra_instructions": "Orders and bookings are confirmed by the staff, never promise a delivery time."
+}
