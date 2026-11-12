@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supérette Khalef</title>
+<meta name="description" content="Supérette Khalef, 240 Remada, Monastir — vos courses du quotidien depuis 2013. Commandez sur WhatsApp et récupérez en magasin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5ef; --bg-2:#e6ebdf; --ink:#0d1433; --ink-2:#4b5373; --line:rgba(13,20,51,.13);
+  --navy:#162a7a; --navy-2:#0d1a52; --green:#1f9a45; --lime:#b8f04a; --card:#ffffff;
+  --display:'Bricolage Grotesque',system-ui,sans-serif; --sans:'Inter Tight',system-ui,sans-serif; --ar:'Cairo',sans-serif;
+  --gutter:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--lime);color:var(--ink)}
+.ar{font-family:var(--ar);direction:rtl}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:10px;font-weight:500}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.h2{font-family:var(--display);font-weight:700;font-size:clamp(42px,6.5vw,104px);line-height:.92;letter-spacing:-.045em}
+.h2 em{font-style:normal;color:var(--green)}
+body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:9998;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+
+.loader{position:fixed;inset:0;z-index:10000;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:var(--gutter)}
+.loader__brand{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.loader__count{font-family:var(--display);font-weight:800;font-size:clamp(90px,22vw,300px);line-height:.8;align-self:flex-end;color:var(--lime);letter-spacing:-.05em}
+
+.cursor{position:fixed;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--green);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .35s,height .35s,background .35s;display:grid;place-items:center;font-size:11px;color:var(--ink);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.cursor.is-big{width:96px;height:96px;background:var(--lime)}
+@media (hover:none){.cursor{display:none}}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px var(--gutter);transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.nav.hide{transform:translateY(-110%)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.03em}
+.brand__mark{width:38px;height:38px;border-radius:50%;background:var(--navy);display:grid;place-items:center;color:var(--lime);font-size:18px;box-shadow:inset 0 0 0 3px var(--bg),inset 0 0 0 5px var(--navy)}
+.brand small{display:block;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:-3px}
+.nav__links{display:flex;gap:6px;background:rgba(255,255,255,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:5px}
+.nav__links a{padding:8px 16px;border-radius:999px;font-size:14px;transition:background .3s}
+.nav__links a:hover{background:var(--bg-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;position:relative;overflow:hidden;isolation:isolate;border:0;cursor:pointer;font-family:inherit}
+.btn::before{content:"";position:absolute;inset:0;background:var(--green);transform:translateY(101%);border-radius:inherit;transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover::before{transform:translateY(0)}
+.btn--lime{background:var(--lime);color:var(--ink)}
+.btn--lime::before{background:#fff}
+.btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.btn svg{width:14px;height:14px;transition:transform .4s}
+.btn:hover svg{transform:rotate(-45deg)}
+@media (max-width:900px){.nav__links{display:none}}
+
+/* hero */
+.hero{min-height:100svh;padding:130px var(--gutter) 40px;display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,64px);align-items:end;position:relative;overflow:hidden}
+.hero__title{font-family:var(--display);font-weight:800;font-size:clamp(56px,10vw,176px);line-height:.86;letter-spacing:-.055em}
+.hero__title .line{display:block;overflow:hidden;padding-bottom:.05em}
+.hero__title .line>span{display:inline-block}
+.hero__title .pill{display:inline-flex;align-items:center;vertical-align:middle;height:.78em;width:1.7em;border-radius:999px;overflow:hidden;margin:0 .08em;transform:translateY(-.06em)}
+.hero__title .pill img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero__title em{font-style:normal;color:var(--green)}
+.hero__ar{font-family:var(--ar);font-weight:800;font-size:clamp(22px,2.6vw,38px);color:var(--navy);margin-top:18px}
+.hero__lead{max-width:440px;color:var(--ink-2);font-size:clamp(16px,1.3vw,18px);margin:28px 0 30px}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero__media{position:relative;aspect-ratio:3/4;border-radius:32px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(13,20,51,.45)}
+.hero__media img{width:100%;height:115%;object-fit:cover}
+.hero__sticker{position:absolute;left:-36px;bottom:40px;width:130px;height:130px;z-index:2}
+.hero__sticker svg{width:100%;height:100%;animation:spin 16s linear infinite}
+.hero__sticker b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:26px;font-weight:800;color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:110px}.hero__media{aspect-ratio:4/3.4;order:-1}.hero__sticker{left:auto;right:12px;bottom:12px;width:104px;height:104px}}
+
+/* marquee */
+.mq-wrap{overflow:hidden;padding:40px 0}
+.marquee{background:var(--navy);color:#fff;overflow:hidden;padding:22px 0;white-space:nowrap;transform:rotate(-1.5deg);margin:0 -20px;box-shadow:0 20px 40px -20px rgba(13,20,51,.5)}
+.marquee__track{display:inline-flex;font-family:var(--display);font-size:clamp(28px,4vw,56px);font-weight:700;letter-spacing:-.03em}
+.marquee__track span{display:inline-flex;align-items:center;gap:40px;padding-right:40px}
+.marquee__track i{width:.42em;height:.42em;border-radius:50%;background:var(--lime);display:inline-block}
+
+/* expand */
+.expand{height:220vh;position:relative}
+.expand__sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.expand__img{position:absolute;inset:0;clip-path:inset(22% 28% 22% 28% round 32px)}
+.expand__img img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.3)}
+.expand__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,20,51,.35),rgba(13,20,51,.25) 50%,rgba(13,20,51,.75))}
+.expand__txt{position:relative;z-index:2;color:#fff;text-align:center;font-family:var(--display);font-weight:800;font-size:clamp(44px,9vw,150px);line-height:.88;letter-spacing:-.05em;opacity:0;padding:0 var(--gutter)}
+.expand__txt em{font-style:normal;color:var(--lime)}
+.expand__cap{position:absolute;left:var(--gutter);right:var(--gutter);bottom:28px;z-index:2;color:#fff;display:flex;justify-content:space-between;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:0}
+
+/* intro */
+.intro{padding:clamp(100px,14vw,200px) var(--gutter);display:grid;grid-template-columns:1fr 2.2fr;gap:clamp(24px,5vw,80px)}
+.intro__text{font-family:var(--display);font-weight:500;font-size:clamp(28px,4vw,62px);line-height:1.04;letter-spacing:-.035em}
+.intro__text .w{opacity:.13}
+.intro__facts{display:grid;gap:22px;align-content:start}
+.fact{padding:20px 0;border-top:1px solid var(--line)}
+.fact b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(40px,4.5vw,64px);line-height:1;letter-spacing:-.04em;color:var(--navy)}
+.fact span{font-size:13px;color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase}
+@media (max-width:860px){.intro{grid-template-columns:1fr}.intro__facts{order:2;grid-template-columns:1fr 1fr}}
+
+/* rayons */
+.rayons{background:var(--ink);color:#fff;overflow:hidden}
+.rayons__pin{height:100vh;display:flex;flex-direction:column;justify-content:center;gap:40px}
+.rayons__head{display:flex;justify-content:space-between;align-items:end;gap:24px;padding:0 var(--gutter)}
+.rayons__head .h2 em{color:var(--lime)}
+.rayons__head .eyebrow{color:rgba(255,255,255,.6)}
+.rayons__track{display:flex;gap:20px;padding:0 var(--gutter);width:max-content}
+.ray{width:min(76vw,380px);aspect-ratio:3/4;border-radius:28px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;color:var(--ink)}
+.ray__n{font-size:13px;letter-spacing:.14em;font-weight:600;opacity:.6}
+.ray__ico{position:absolute;right:20px;top:60px;width:52%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.ray:hover .ray__ico{transform:rotate(-10deg) scale(1.08)}
+.ray h3{font-family:var(--display);font-weight:800;font-size:clamp(30px,3vw,42px);line-height:.95;letter-spacing:-.04em;margin-bottom:10px}
+.ray p{font-size:15px;opacity:.75;max-width:280px}
+.ray .ar{font-size:16px;opacity:.7;margin-bottom:6px}
+.ray:nth-child(1){background:#dff3ff}.ray:nth-child(2){background:var(--lime)}.ray:nth-child(3){background:#fff4cf}
+.ray:nth-child(4){background:#cdeedd}.ray:nth-child(5){background:#ffd9cc}.ray:nth-child(6){background:#e4e1ff}
+@media (max-width:760px){.rayons__pin{height:auto;padding:100px 0}.rayons__track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}.ray{scroll-snap-align:start;flex:0 0 auto}}
+
+/* steps */
+.steps{padding:clamp(100px,14vw,200px) var(--gutter) clamp(80px,10vw,160px)}
+.steps__head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.steps__head p{max-width:380px;color:var(--ink-2)}
+.step{position:sticky;top:90px;min-height:46vh;border-radius:32px;padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:auto 1fr 1fr;gap:clamp(20px,4vw,64px);align-items:start;margin-bottom:24px;background:var(--card);border:1px solid var(--line);box-shadow:0 -20px 60px rgba(13,20,51,.06);transform-origin:top center}
+.step:nth-child(2){top:110px;background:var(--lime)}
+.step:nth-child(3){top:130px;background:var(--navy);color:#fff}
+.step__n{font-family:var(--display);font-weight:800;font-size:clamp(64px,9vw,150px);line-height:.8;letter-spacing:-.06em}
+.step h3{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.6vw,54px);line-height:.98;letter-spacing:-.04em}
+.step p{font-size:17px;opacity:.85}
+.chat{margin-top:20px;display:grid;gap:8px;font-size:14px}
+.chat span{justify-self:start;padding:10px 14px;border-radius:18px 18px 18px 4px;background:rgba(127,127,127,.14)}
+.chat span.me{justify-self:end;border-radius:18px 18px 4px 18px;background:#d9fdd3;color:#0d1433}
+@media (max-width:860px){.step{grid-template-columns:1fr;min-height:auto}}
+
+/* about */
+.about{overflow:hidden;padding:clamp(80px,12vw,180px) var(--gutter);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center;background:var(--bg-2)}
+.about__img{aspect-ratio:1;border-radius:50%;overflow:hidden;border:10px solid #fff;box-shadow:0 30px 60px -30px rgba(13,20,51,.4)}
+.about__img img{width:100%;height:115%;object-fit:cover}
+.about blockquote{font-family:var(--display);font-weight:500;font-size:clamp(30px,3.6vw,56px);line-height:1.02;letter-spacing:-.04em;margin:22px 0 22px}
+.about blockquote em{font-style:normal;color:var(--green)}
+.about p{color:var(--ink-2);max-width:460px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.badges span{font-size:13px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:500}
+@media (max-width:860px){.about{grid-template-columns:1fr}.about__img{max-width:380px}}
+
+/* contact */
+.cta{background:var(--navy);color:#fff;padding:clamp(100px,14vw,200px) var(--gutter) 40px;border-radius:40px 40px 0 0;overflow:hidden}
+.cta .eyebrow{color:rgba(255,255,255,.65)}.cta .eyebrow::before{background:var(--lime)}
+.cta__big{font-family:var(--display);font-weight:800;font-size:clamp(56px,12.5vw,220px);line-height:.84;letter-spacing:-.06em}
+.cta__big em{font-style:normal;color:var(--lime)}
+.cta__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,6vw,96px);margin-top:80px}
+.form{display:grid;gap:18px;align-content:start}
+.field{display:grid;gap:6px;align-content:end}
+.field label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.field input,.field select,.field textarea{font:inherit;color:#fff;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.3);padding:12px 0;font-size:18px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none;color-scheme:dark;resize:vertical}
+.field select option{color:var(--ink)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.4)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--lime)}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form__ok{display:none;padding:16px;border-radius:16px;background:rgba(184,240,74,.15);color:var(--lime)}
+.info{display:grid;gap:28px;align-content:start}
+.info h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;font-weight:500;margin-bottom:8px}
+.info p,.info a{font-size:18px}
+.info .big{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.2vw,46px);letter-spacing:-.03em;color:var(--lime)}
+.hours{display:grid;grid-template-columns:1fr auto;gap:6px 24px;font-size:16px}
+.map{aspect-ratio:16/10;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.15)}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.6) contrast(1.05)}
+.foot{margin-top:100px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;opacity:.85}
+@media (max-width:860px){.cta__grid{grid-template-columns:1fr}.form__row{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(40px)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}body::after,.hero__sticker svg{animation:none}.expand__txt,.expand__cap{opacity:1}.expand__img{clip-path:none}}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="loader__brand">Supérette Khalef</div><div class="loader__count" id="count">2000</div></div>
+<div class="cursor" id="cursor"></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand"><span class="brand__mark">K</span><span>Khalef<small>Supérette · depuis 2013</small></span></a>
+  <nav class="nav__links"><a href="#rayons">Rayons</a><a href="#commande">Commander</a><a href="#nous">Qui sommes-nous</a><a href="#contact">Contact</a></nav>
+  <a href="#contact" class="btn" data-cursor="Go">Commander <svg viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M4 1h9v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div>
+      <div class="eyebrow" style="margin-bottom:26px">Monastir · Supérette de quartier · depuis 2013</div>
+      <h1 class="hero__title">
+        <span class="line"><span>Les bons</span></span>
+        <span class="line"><span>produits <span class="pill"><img src="img/inside.jpg" alt=""></span></span></span>
+        <span class="line"><span><em>chaque jour.</em></span></span>
+      </h1>
+      <div class="hero__ar ar">كل ما تحتاجو، قريب منك</div>
+      <p class="hero__lead">Épicerie, produits laitiers, boissons, entretien… Tout le quotidien à deux pas de chez vous. Envoyez votre liste sur WhatsApp, on la prépare pour vous.</p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn" data-cursor="Liste">Envoyer ma liste <svg viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M4 1h9v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        <a href="#rayons" class="btn btn--lime" data-cursor="Voir">Voir les rayons</a>
+      </div>
+    </div>
+    <figure class="hero__media">
+      <img src="img/store.jpg" alt="Façade de la Supérette Khalef">
+      <div class="hero__sticker" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#b8f04a"/><defs><path id="c" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs><text font-size="11" letter-spacing="2.4" fill="#0d1433" font-family="Inter Tight" font-weight="600"><textPath href="#c">DEPUIS 2013 · SUPÉRETTE KHALEF · </textPath></text></svg><b>K</b></div>
+    </figure>
+  </section>
+
+  <div class="mq-wrap"><div class="marquee"><div class="marquee__track" id="marquee">
+    <span>Épicerie <i></i> Produits laitiers <i></i> Boissons <i></i> Entretien <i></i> Hygiène <i></i> Snacks <i></i></span>
+    <span>Épicerie <i></i> Produits laitiers <i></i> Boissons <i></i> Entretien <i></i> Hygiène <i></i> Snacks <i></i></span>
+  </div></div></div>
+
+  <section class="expand">
+    <div class="expand__sticky">
+      <div class="expand__img" id="expandImg"><img src="img/front.jpg" alt="Entrée de la supérette"></div>
+      <h2 class="expand__txt" id="expandTxt">Votre supérette,<br><em>juste en bas.</em></h2>
+      <div class="expand__cap" id="expandCap"><span>Supérette Khalef</span><span>240 Remada, Monastir</span></div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="intro__facts">
+      <div class="fact"><b><span data-count="2013">0</span></b><span>Au service du quartier depuis</span></div>
+      <div class="fact"><b>5.0<span style="font-size:.5em;color:var(--green);letter-spacing:0">★</span></b><span>Note Google</span></div>
+    </div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:28px">Notre promesse</div>
+      <p class="intro__text" id="introText">Des produits frais et de marque, des rayons bien rangés, un accueil qui vous connaît par votre prénom. Chez Khalef, faire ses courses redevient simple, rapide et agréable.</p>
+    </div>
+  </section>
+
+  <section class="rayons" id="rayons">
+    <div class="rayons__pin" id="rayPin">
+      <div class="rayons__head">
+        <h2 class="h2">Nos <em>rayons</em></h2>
+        <div class="eyebrow">Glissez · 06 univers</div>
+      </div>
+      <div class="rayons__track" id="rayTrack">
+        <article class="ray" data-cursor="Rayon"><div class="ray__n">01</div>
+          <svg class="ray__ico" viewBox="0 0 120 120" fill="none" stroke="#162a7a" stroke-width="4" stroke-linejoin="round"><path d="M40 18h40v14l10 16v58H30V48l10-16Z"/><path d="M30 64h60"/><path d="M40 32h40"/></svg>
+          <div><div class="ar">الحليب ومشتقاتو</div><h3>Produits laitiers</h3><p>Lait, yaourts, fromages et beurre, toujours au frais.</p></div></article>
+        <article class="ray" data-cursor="Rayon"><div class="ray__n">02</div>
+          <svg class="ray__ico" viewBox="0 0 120 120" fill="none" stroke="#0d1433" stroke-width="4" stroke-linejoin="round"><path d="M50 10h20v14l8 12v74H42V36l8-12Z"/><path d="M42 56h36M42 80h36"/></svg>
+          <div><div class="ar">المشروبات</div><h3>Boissons & eau</h3><p>Eaux, jus, sodas et bouteilles grand format.</p></div></article>
+        <article class="ray" data-cursor="Rayon"><div class="ray__n">03</div>
+          <svg class="ray__ico" viewBox="0 0 120 120" fill="none" stroke="#162a7a" stroke-width="4" stroke-linejoin="round"><path d="M24 50h72l-8 56H32Z"/><path d="M40 50c0-16 8-28 20-28s20 12 20 28"/></svg>
+          <div><div class="ar">العطرية</div><h3>Épicerie</h3><p>Pâtes, conserves, huile, sucre, café : les essentiels du placard.</p></div></article>
+        <article class="ray" data-cursor="Rayon"><div class="ray__n">04</div>
+          <svg class="ray__ico" viewBox="0 0 120 120" fill="none" stroke="#1f9a45" stroke-width="4" stroke-linejoin="round"><path d="M46 22h22v16H46Z"/><path d="M68 28h16l6 8"/><path d="M40 38h34l6 14v56H34V52Z"/><circle cx="57" cy="78" r="12"/></svg>
+          <div><div class="ar">التنظيف</div><h3>Entretien</h3><p>Lessive, javel, liquide vaisselle : une maison propre qui dure.</p></div></article>
+        <article class="ray" data-cursor="Rayon"><div class="ray__n">05</div>
+          <svg class="ray__ico" viewBox="0 0 120 120" fill="none" stroke="#0d1433" stroke-width="4" stroke-linejoin="round"><rect x="42" y="30" width="36" height="78" rx="12"/><path d="M52 30V16h16v14"/><path d="M42 58h36"/></svg>
+          <div><div class="ar">النظافة الشخصية</div><h3>Hygiène</h3><p>Savons, shampooings, soins et produits pour bébé.</p></div></article>
+        <article class="ray" data-cursor="Rayon"><div class="ray__n">06</div>
+          <svg class="ray__ico" viewBox="0 0 120 120" fill="none" stroke="#162a7a" stroke-width="4" stroke-linejoin="round"><path d="M28 30h64l-6 76H34Z"/><path d="M28 30l8-12h48l8 12"/><path d="M44 58c8 8 24 8 32 0"/></svg>
+          <div><div class="ar">الحلويات والسناكس</div><h3>Snacks & douceurs</h3><p>Biscuits, chocolats, chips : de quoi faire plaisir à toute la famille.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps" id="commande">
+    <div class="steps__head">
+      <h2 class="h2">Commander,<br><em>c'est facile.</em></h2>
+      <p>Pas le temps de faire la liste dans les rayons ? Envoyez-la, on s'occupe du reste.</p>
+    </div>
+    <div>
+      <div class="step"><div class="step__n">01</div><h3>Envoyez votre liste</h3><div><p>Par WhatsApp ou via le formulaire en bas de page.</p><div class="chat"><span class="me">2 litres de lait, 1 pack d'eau, lessive 🙏</span></div></div></div>
+      <div class="step"><div class="step__n">02</div><h3>On prépare</h3><div><p>Votre commande est préparée avec soin et on vous confirme quand elle est prête.</p><div class="chat"><span>C'est prêt ! ✅</span></div></div></div>
+      <div class="step"><div class="step__n">03</div><h3>Vous récupérez</h3><div><p>Passez au magasin : vos courses vous attendent, sans file d'attente.</p><div class="chat"><span class="me">J'arrive dans 5 min 👍</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="about" id="nous">
+    <div class="about__img reveal"><img src="img/store.jpg" alt="La supérette de nuit" style="object-position:50% 45%"></div>
+    <div class="reveal">
+      <div class="eyebrow">Qui sommes-nous</div>
+      <blockquote>Une supérette de quartier, <em>tenue en famille</em> depuis 2013.</blockquote>
+      <p>Depuis plus de dix ans, Khalef accompagne les familles du quartier au quotidien : des produits de confiance, des prix honnêtes et un service avec le sourire.</p>
+      <div class="badges"><span>Depuis 2013</span><span>Produits de marque</span><span>Commande WhatsApp</span><span>Accueil familial</span></div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="eyebrow" style="margin-bottom:28px">Commander · Nous trouver</div>
+    <h2 class="cta__big">Votre liste,<br><em>on s'en charge.</em></h2>
+    <div class="cta__grid">
+      <form class="form" id="form">
+        <div class="form__row">
+          <div class="field"><label for="f-name">Nom</label><input id="f-name" required placeholder="Votre nom"></div>
+          <div class="field"><label for="f-phone">Téléphone</label><input id="f-phone" type="tel" placeholder="+216 ..."></div>
+        </div>
+        <div class="field"><label for="f-list">Votre liste de courses</label><textarea id="f-list" rows="4" required placeholder="Ex : 2 L de lait, 1 pack d'eau, pain de mie, lessive…"></textarea></div>
+        <div class="field"><label for="f-time">Récupération</label><select id="f-time"><option>Dès que possible</option><option>Ce matin</option><option>Cet après-midi</option><option>Ce soir</option></select></div>
+        <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn--lime" type="submit" data-cursor="Envoyer">Envoyer sur WhatsApp <svg viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M4 1h9v9" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          <a class="btn btn--ghost" id="callBtn">Appeler</a>
+        </div>
+        <div class="form__ok" id="formOk">Merci ! WhatsApp s'ouvre avec votre liste pré-remplie.</div>
+      </form>
+      <div class="info">
+        <div><h4>Téléphone / WhatsApp</h4><a class="big" id="telLink"></a></div>
+        <div><h4>Adresse</h4><p id="addr"></p><p id="plus" style="font-size:14px;opacity:.6;margin-top:4px"></p></div>
+        <div><h4>Horaires</h4><div class="hours" id="hours"></div></div>
+        <div class="map"><iframe id="mapFrame" loading="lazy" title="Carte Supérette Khalef"></iframe></div>
+        <a class="btn btn--ghost" id="dirBtn" target="_blank" rel="noopener" style="justify-self:start">Itinéraire Google Maps <svg viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M4 1h9v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </div>
+    </div>
+    <footer class="foot"><span class="brand"><span class="brand__mark">K</span>Supérette Khalef</span><span>240 Remada, Monastir · depuis 2013</span><span>© <span id="yr"></span></span><a href="#top">Haut de page ↑</a></footer>
+  </section>
+</main>
+
+<script>
+/* ============ INFOS DE LA SUPÉRETTE (à compléter) ============ */
+const CONFIG = {
+  phone:    "28 467 838",
+  phoneIntl:"+21628467838",
+  whatsapp: "21628467838",   // à confirmer : même numéro sur WhatsApp ?
+  lat: 35.763106, lng: 10.816765,
+  address:  "240 Remada, Monastir",
+  plusCode: "QR78+6P Monastir",
+  mapsUrl:  "https://www.google.com/maps/place/Khalef/@35.763106,10.816765,17z/data=!4m6!3m5!1s0x130213001e094a2d:0xb30ceb13b2fe658a!8m2!3d35.763106!4d10.816765",
+  hours: [["Tous les jours","À confirmer"]]   // TODO : vrais horaires
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('#telLink').textContent = CONFIG.phone; $('#telLink').href = 'tel:' + CONFIG.phoneIntl;
+  $('#callBtn').href = 'tel:' + CONFIG.phoneIntl; $('#dirBtn').href = CONFIG.mapsUrl;
+  $('#yr').textContent = new Date().getFullYear();
+  $('#addr').textContent = CONFIG.address; $('#plus').textContent = CONFIG.plusCode;
+  $('#mapFrame').src = `https://maps.google.com/maps?q=${CONFIG.lat},${CONFIG.lng}&z=17&output=embed`;
+  $('#hours').innerHTML = CONFIG.hours.map(([d,h]) => `<span>${d}</span><span>${h}</span>`).join('');
+  $('#form').addEventListener('submit', e => {
+    e.preventDefault();
+    const msg = `Bonjour Khalef, voici ma commande :\n${$('#f-list').value}\n\nNom : ${$('#f-name').value}\nTél : ${$('#f-phone').value || '—'}\nRécupération : ${$('#f-time').value}`;
+    $('#formOk').style.display = 'block';
+    window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
+
+  const cur = $('#cursor');
+  if (matchMedia('(hover:hover)').matches) {
+    let cx = innerWidth/2, cy = innerHeight/2, tx = cx, ty = cy;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; });
+    (function loop(){ cx += (tx-cx)*.18; cy += (ty-cy)*.18; cur.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
+    $$('[data-cursor]').forEach(el => {
+      el.addEventListener('pointerenter', () => { cur.classList.add('is-big'); cur.textContent = el.dataset.cursor; });
+      el.addEventListener('pointerleave', () => { cur.classList.remove('is-big'); cur.textContent = ''; });
+    });
+  }
+  const counters = () => $$('[data-count]').forEach(el => {
+    const t = +el.dataset.count, o = { v: 1990 };
+    if (!window.gsap || reduce) { el.textContent = t; return; }
+    gsap.to(o, { v: t, duration: 2, ease: 'power3.out', onUpdate: () => el.textContent = Math.round(o.v), scrollTrigger: { trigger: el, start: 'top 90%' } });
+  });
+  if (!window.gsap || reduce) {
+    $('#loader').remove(); counters();
+    $$('.reveal').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; });
+    $$('.expand__txt,.expand__cap').forEach(e => e.style.opacity = 1);
+    $$('#introText').forEach(e => e.style.opacity = 1);
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: .09 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href'); if (id.length > 1 && $(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -20, duration: 1.4 }); } }));
+  }
+  let last = 0;
+  ScrollTrigger.create({ onUpdate: s => { const y = s.scroll(); $('#nav').classList.toggle('hide', y > last && y > 200); last = y; } });
+
+  const it = $('#introText');
+  it.innerHTML = it.textContent.split(' ').map(w => `<span class="w">${w}</span>`).join(' ');
+  gsap.to('#introText .w', { opacity: 1, stagger: .05, ease: 'none', scrollTrigger: { trigger: it, start: 'top 80%', end: 'bottom 45%', scrub: true } });
+
+  const c = { v: 2000 };
+  gsap.set('.hero__title .line>span', { yPercent: 110 });
+  gsap.set('.hero__ar, .hero__lead, .hero__cta, .hero .eyebrow', { opacity: 0, y: 20 });
+  gsap.set('.hero__media', { clipPath: 'inset(100% 0 0 0 round 32px)' });
+  gsap.set('.hero__sticker', { scale: 0, rotate: -120 });
+  gsap.timeline()
+    .to(c, { v: 2013, duration: 1.5, ease: 'power2.inOut', onUpdate: () => $('#count').textContent = Math.round(c.v) })
+    .to('#loader', { yPercent: -100, duration: 1, ease: 'expo.inOut' })
+    .to('.hero__title .line>span', { yPercent: 0, duration: 1.3, stagger: .1, ease: 'expo.out' }, '-=.45')
+    .to('.hero__media', { clipPath: 'inset(0% 0 0 0 round 32px)', duration: 1.4, ease: 'expo.inOut' }, '<')
+    .to('.hero__sticker', { scale: 1, rotate: 0, duration: 1.2, ease: 'back.out(1.6)' }, '-=.7')
+    .to('.hero__ar, .hero__lead, .hero__cta, .hero .eyebrow', { opacity: 1, y: 0, duration: 1, stagger: .08, ease: 'power3.out' }, '-=1.2')
+    .add(() => { $('#loader').remove(); counters(); }, '-=.8');
+
+  gsap.to('.hero__media img', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  const mq = gsap.to('#marquee', { xPercent: -50, duration: 22, ease: 'none', repeat: -1 });
+  ScrollTrigger.create({ onUpdate: s => { const v = gsap.utils.clamp(-4, 4, s.getVelocity() / 300); gsap.to(mq, { timeScale: (s.direction < 0 ? -1 : 1) * (1 + Math.abs(v)), duration: .2, overwrite: true }); } });
+
+  gsap.timeline({ scrollTrigger: { trigger: '.expand', start: 'top top', end: 'bottom bottom', scrub: true } })
+    .fromTo('#expandImg', { clipPath: 'inset(22% 28% 22% 28% round 32px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none', duration: 1 })
+    .to('#expandImg img', { scale: 1, ease: 'none', duration: 1 }, 0)
+    .fromTo('#expandTxt', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: .4 }, .6)
+    .to('#expandCap', { opacity: 1, duration: .3 }, .75);
+
+  $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } }));
+  $$('.h2, .cta__big').forEach(el => gsap.from(el, { y: 80, opacity: 0, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+
+  ScrollTrigger.matchMedia({ '(min-width: 761px)': () => {
+    const track = $('#rayTrack'), dist = () => track.scrollWidth - innerWidth;
+    gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '#rayPin', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true } });
+  }});
+  const steps = $$('.step');
+  steps.forEach((s, i) => { if (i < steps.length - 1) gsap.fromTo(s, { scale: 1 }, { scale: .92 + i * .03, ease: 'none', scrollTrigger: { trigger: steps[i + 1], start: 'top bottom', end: 'top 20%', scrub: true } }); });
+  gsap.from('.chat span', { opacity: 0, y: 20, scale: .9, stagger: .2, duration: .6, ease: 'back.out(2)', scrollTrigger: { trigger: '.steps', start: 'top 60%' } });
+  gsap.fromTo('.about__img img', { yPercent: -12 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.about', scrub: true } });
+  gsap.to('.about__img', { rotate: 8, ease: 'none', scrollTrigger: { trigger: '.about', scrub: true } });
+
+  $$('.btn').forEach(b => {
+    b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - r.left - r.width/2) * .25, y: (e.clientY - r.top - r.height/2) * .35, duration: .4 }); });
+    b.addEventListener('pointerleave', () => gsap.to(b, { x: 0, y: 0, duration: .7, ease: 'elastic.out(1,.4)' }));
+  });
+  addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
