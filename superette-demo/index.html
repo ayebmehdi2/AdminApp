@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Supérette Khalef</title>
-<meta name="description" content="Supérette Khalef — vos courses du quotidien depuis 2013. Commandez sur WhatsApp et récupérez en magasin.">
+<meta name="description" content="Supérette Khalef, 240 Remada, Monastir — vos courses du quotidien depuis 2013. Commandez sur WhatsApp et récupérez en magasin.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=Cairo:wght@600;800&display=swap" rel="stylesheet">
@@ -189,7 +189,7 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 <main id="top">
   <section class="hero">
     <div>
-      <div class="eyebrow" style="margin-bottom:26px">Supérette de quartier · depuis 2013</div>
+      <div class="eyebrow" style="margin-bottom:26px">Monastir · Supérette de quartier · depuis 2013</div>
       <h1 class="hero__title">
         <span class="line"><span>Les bons</span></span>
         <span class="line"><span>produits <span class="pill"><img src="img/inside.jpg" alt=""></span></span></span>
@@ -217,14 +217,14 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
     <div class="expand__sticky">
       <div class="expand__img" id="expandImg"><img src="img/front.jpg" alt="Entrée de la supérette"></div>
       <h2 class="expand__txt" id="expandTxt">Votre supérette,<br><em>juste en bas.</em></h2>
-      <div class="expand__cap" id="expandCap"><span>Supérette Khalef</span><span>Depuis 2013</span></div>
+      <div class="expand__cap" id="expandCap"><span>Supérette Khalef</span><span>240 Remada, Monastir</span></div>
     </div>
   </section>
 
   <section class="intro">
     <div class="intro__facts">
       <div class="fact"><b><span data-count="2013">0</span></b><span>Au service du quartier depuis</span></div>
-      <div class="fact"><b>WhatsApp</b><span>Commande simple et rapide</span></div>
+      <div class="fact"><b>5.0<span style="font-size:.5em;color:var(--green);letter-spacing:0">★</span></b><span>Note Google</span></div>
     </div>
     <div>
       <div class="eyebrow" style="margin-bottom:28px">Notre promesse</div>
@@ -302,22 +302,25 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
       </form>
       <div class="info">
         <div><h4>Téléphone / WhatsApp</h4><a class="big" id="telLink"></a></div>
+        <div><h4>Adresse</h4><p id="addr"></p><p id="plus" style="font-size:14px;opacity:.6;margin-top:4px"></p></div>
         <div><h4>Horaires</h4><div class="hours" id="hours"></div></div>
         <div class="map"><iframe id="mapFrame" loading="lazy" title="Carte Supérette Khalef"></iframe></div>
         <a class="btn btn--ghost" id="dirBtn" target="_blank" rel="noopener" style="justify-self:start">Itinéraire Google Maps <svg viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M4 1h9v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
       </div>
     </div>
-    <footer class="foot"><span class="brand"><span class="brand__mark">K</span>Supérette Khalef</span><span>Les bons produits, chaque jour · depuis 2013</span><span>© <span id="yr"></span></span><a href="#top">Haut de page ↑</a></footer>
+    <footer class="foot"><span class="brand"><span class="brand__mark">K</span>Supérette Khalef</span><span>240 Remada, Monastir · depuis 2013</span><span>© <span id="yr"></span></span><a href="#top">Haut de page ↑</a></footer>
   </section>
 </main>
 
 <script>
 /* ============ INFOS DE LA SUPÉRETTE (à compléter) ============ */
 const CONFIG = {
-  phone:    "00 000 000",      // TODO : vrai numéro
-  phoneIntl:"+21600000000",    // TODO
-  whatsapp: "21600000000",     // TODO
+  phone:    "28 467 838",
+  phoneIntl:"+21628467838",
+  whatsapp: "21628467838",   // à confirmer : même numéro sur WhatsApp ?
   lat: 35.763106, lng: 10.816765,
+  address:  "240 Remada, Monastir",
+  plusCode: "QR78+6P Monastir",
   mapsUrl:  "https://www.google.com/maps/place/Khalef/@35.763106,10.816765,17z/data=!4m6!3m5!1s0x130213001e094a2d:0xb30ceb13b2fe658a!8m2!3d35.763106!4d10.816765",
   hours: [["Tous les jours","À confirmer"]]   // TODO : vrais horaires
 };
@@ -332,6 +335,7 @@ const CONFIG = {
   $('#telLink').textContent = CONFIG.phone; $('#telLink').href = 'tel:' + CONFIG.phoneIntl;
   $('#callBtn').href = 'tel:' + CONFIG.phoneIntl; $('#dirBtn').href = CONFIG.mapsUrl;
   $('#yr').textContent = new Date().getFullYear();
+  $('#addr').textContent = CONFIG.address; $('#plus').textContent = CONFIG.plusCode;
   $('#mapFrame').src = `https://maps.google.com/maps?q=${CONFIG.lat},${CONFIG.lng}&z=17&output=embed`;
   $('#hours').innerHTML = CONFIG.hours.map(([d,h]) => `<span>${d}</span><span>${h}</span>`).join('');
   $('#form').addEventListener('submit', e => {
